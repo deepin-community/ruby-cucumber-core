@@ -1,0 +1,17 @@
+Description: Set external encoding to UTF-8 for readme_spec.rb
+ In sbuild environment, the default external encoding for specs run by the rake
+ method seems to be ASCII. This causes an encoding error when trying to read
+ the UTF-8 README file.
+ Default external encoding is thus forced in this test file to UTF-8 to ensure
+ that the file will be read correctly.
+Author: Cédric Boutillier <boutil@debian.org>
+Last-Update: 2015-05-28
+
+--- ruby-cucumber-core-1.1.3.orig/spec/readme_spec.rb
++++ ruby-cucumber-core-1.1.3/spec/readme_spec.rb
+@@ -1,3 +1,5 @@
++Encoding.default_external = "UTF-8"
++
+ require 'stringio'
+ require 'kramdown'
+ 

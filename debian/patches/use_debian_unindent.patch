@@ -1,0 +1,48 @@
+Description: use the copy of unindent.rb provided in debian/ for tests
+ unindent.rb is a very short file that doesn't require (yet) to be
+ packaged as a proper Debian package
+Author: Cédric Boutillier <boutil@debian.org>
+Forwarded:no
+Last-Update: 2015-04-29
+
+--- a/spec/cucumber/core/ast/doc_string_spec.rb
++++ b/spec/cucumber/core/ast/doc_string_spec.rb
+@@ -1,6 +1,6 @@
+ require 'cucumber/core/ast/location'
+ require 'cucumber/core/ast/doc_string'
+-require 'unindent'
++require 'debian/unindent'
+ 
+ module Cucumber
+   module Core
+--- a/spec/cucumber/core/test/case_spec.rb
++++ b/spec/cucumber/core/test/case_spec.rb
+@@ -3,7 +3,7 @@
+ require 'cucumber/core/gherkin/writer'
+ require 'cucumber/core/platform'
+ require 'cucumber/core/test/case'
+-require 'unindent'
++require 'debian/unindent'
+ 
+ module Cucumber
+   module Core
+--- a/spec/cucumber/core_spec.rb
++++ b/spec/cucumber/core_spec.rb
+@@ -106,7 +106,7 @@
+           end
+         end
+ 
+-        require 'unindent'
++        require 'debian/unindent'
+         def expect_tag_excess(error_message)
+           expect {
+             compile [gherkin_doc], visitor, tag_filters
+--- a/spec/cucumber/core/gherkin/writer_spec.rb
++++ b/spec/cucumber/core/gherkin/writer_spec.rb
+@@ -1,5 +1,5 @@
+ require 'cucumber/core/gherkin/writer'
+-require 'unindent'
++require 'debian/unindent'
+ 
+ module Cucumber::Core::Gherkin
+   describe Writer do

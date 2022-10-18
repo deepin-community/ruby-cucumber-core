@@ -1,0 +1,16 @@
+Description: load explicitly kramdown parser for GFM
+ it has been split in kramdown v2
+Forwarded: not-needed
+Author: Cédric Boutillier <boutil@debian.org>
+Last-Update: 2020-07-22
+
+--- a/spec/readme_spec.rb
++++ b/spec/readme_spec.rb
+@@ -2,6 +2,7 @@
+ 
+ require 'stringio'
+ require 'kramdown'
++require 'kramdown/parser/gfm'
+ 
+ describe "README.md code snippet" do
+   let(:code_blocks) do
